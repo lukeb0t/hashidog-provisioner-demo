@@ -9,15 +9,15 @@ module "vpc" {
   cidr = "10.0.0.0/16"
 
   azs             = data.aws_availability_zones.azs.names
-  private_subnets = cidrsubnets("10.1.0.0/16", 4, 4, 8, 4)
-  public_subnets  = cidrsubnets("10.2.0.0/16", 4, 4, 8, 4)
+  private_subnets = cidrsubnets("10.0.1.0/16", 4, 4, 8, 4)
+  public_subnets  = cidrsubnets("10.0.2.0/16", 4, 4, 8, 4)
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
 }
 
 resource "aws_security_group" "hashidog" {
-  name   = "sg-external"
+  name   = "hashidog"
   vpc_id = module.vpc.vpc_id
   egress {
     # allow all outbound
