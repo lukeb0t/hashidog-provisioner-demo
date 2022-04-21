@@ -24,32 +24,19 @@ data "aws_ami" "ubuntu" {
 }
 
 
-<<<<<<< HEAD
-resource "aws_instance" "argonet" {
-=======
 resource "aws_instance" "hashidog" {
->>>>>>> 281e42a (commit)
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.hashidog.key_name
   associate_public_ip_address = true
   subnet_id                   = module.vpc.public_subnets
-<<<<<<< HEAD
-  vpc_security_group_ids      = [aws_security_group.sg1.id]
-  tags                        = var.aws_tags
-}
-=======
   vpc_security_group_ids      = [aws_security_group.hashidog.id]
->>>>>>> 281e42a (commit)
 
   connection {
     type        = "ssh"
     user        = "ubuntu"
     private_key = tls_private_key.hashidog.private_key_pem
-<<<<<<< HEAD
-=======
     host        = aws_instance.hashidog.public_ip
->>>>>>> 281e42a (commit)
   }
 
   provisioner "remote-exec" {
@@ -67,8 +54,6 @@ resource "aws_instance" "hashidog" {
       "cowsay -f tux 'Mooooooorrrrnin!'",
     ]
   }
-<<<<<<< HEAD
-=======
 }
 
 # resource "aws_eip" "hashidog" {
@@ -80,4 +65,3 @@ resource "aws_instance" "hashidog" {
 #   instance_id   = aws_instance.hashidog.id
 #   allocation_id = aws_eip.hashidog.id
 # }
->>>>>>> 281e42a (commit)

@@ -10,8 +10,6 @@ variable "public_sub_cidrs" {
 
 variable "private_sub_cidrs" {
 default = ["10.0.1.0/24", "10.0.2.0/24"]
-<<<<<<< HEAD
-=======
 }
 
 variable "instance_type" {
@@ -44,5 +42,4 @@ variable "prefix" {
 
 variable "ttl" {
   default = "24"
->>>>>>> 281e42a (commit)
 }
