@@ -29,6 +29,7 @@ output "public_sub_cidrs" {
 }
 
 output "keypair_pem" {
+<<<<<<< HEAD
   value     = tls_private_key.vault.private_key_pem
   sensitive = true
 }
@@ -43,4 +44,20 @@ output "vault_private_ip" {
 
 output "vault_sg_id" {
   value = aws_security_group.vault.id
+=======
+  value     = tls_private_key.hashidog.private_key_pem
+  sensitive = true
+}
+
+output "hashidog_public_ip" {
+  value = aws_instance.hashidog.public_ip
+}
+
+output "hashidog_private_ip" {
+  value = aws_instance.hashidog.private_ip
+}
+
+output "hashidog_sg_id" {
+  value = aws_security_group.hashidog.id
+>>>>>>> 281e42a (commit)
 }
