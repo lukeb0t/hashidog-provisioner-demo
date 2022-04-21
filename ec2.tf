@@ -23,13 +23,17 @@ data "aws_ami" "ubuntu" {
   owners = ["099720109477"] # Canonical
 }
 
+resource "random_shuffle" "subnet" {
+  input        = module.vpc.public_subnets
+  result_count = 1
+}
 
 resource "aws_instance" "hashidog" {
   ami                         = data.aws_ami.ubuntu.id
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.hashidog.key_name
   associate_public_ip_address = true
-  subnet_id                   = module.vpc.public_subnets[0]
+  subnet_id                   = "${random_shuffle.public_subnet.result}"
   vpc_security_group_ids      = [aws_security_group.hashidog.id]
 
   connection {
