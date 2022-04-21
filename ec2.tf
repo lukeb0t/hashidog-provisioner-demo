@@ -33,7 +33,7 @@ resource "aws_instance" "hashidog" {
   instance_type               = var.instance_type
   key_name                    = aws_key_pair.hashidog.key_name
   associate_public_ip_address = true
-  subnet_id                   = "${random_shuffle.public_subnets.result}"
+  subnet_id                   = [random_shuffle.public_subnets.result]
   vpc_security_group_ids      = [aws_security_group.hashidog.id]
 
   connection {
