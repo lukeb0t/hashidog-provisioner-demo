@@ -6,11 +6,11 @@ module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
   name = "hashidog-vpc"
-  cidr = "10.0.0.0/16"
+  cidr = "10.0.0.0/8"
 
   azs             = data.aws_availability_zones.azs.names
-  private_subnets = cidrsubnets("10.0.1.0/16", 4, 4, 8, 4)
-  public_subnets  = cidrsubnets("10.0.2.0/16", 4, 4, 8, 4)
+  private_subnets = cidrsubnets("10.0.0.0/8", 4, 4, 4, 4, 4, 4, 4)
+  public_subnets  = cidrsubnets("10.10.0.0/16", 4, 4, 4, 4, 4, 4, 4)
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
