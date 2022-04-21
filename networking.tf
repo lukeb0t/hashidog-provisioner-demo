@@ -1,4 +1,5 @@
 data "aws_availability_zones" "azs" {
+  state = "available"
 }
 
 module "vpc" {
@@ -7,9 +8,9 @@ module "vpc" {
   name = "hashidog-vpc"
   cidr = "10.0.0.0/16"
 
-  azs             = [data.aws_availability_zones.azs.available.names]
-  private_subnets = var.private_sub_cidrs
-  public_subnets  = var.public_sub_cidrs
+  azs             = data.aws_availability_zones.azs.names
+  private_subnets = cidrsubnets("10.1.0.0/16", 4, 4, 8, 4)
+  public_subnets  = cidrsubnets("10.2.0.0/16", 4, 4, 8, 4)
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
