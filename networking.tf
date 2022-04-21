@@ -1,10 +1,13 @@
+data "aws_availability_zones" "azs" {
+}
+
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "zt-vpc"
+  name = "hashidog-vpc"
   cidr = "10.0.0.0/16"
 
-  azs             = ["${var.region}a", "${var.region}b"]
+  azs             = [data.aws_availability_zones.azs.names]
   private_subnets = var.private_sub_cidrs
   public_subnets  = var.public_sub_cidrs
 
