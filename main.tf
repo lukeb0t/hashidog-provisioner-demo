@@ -7,9 +7,9 @@ region = var.region
 
 locals {
   tags = {
-    owner              = "George Jetson"
+    owner              = var.owner
     se-region          = "AMER-East E2",
-    purpose            = "training demo for manager and peers",
+    purpose            = "Terraform Demo of AWS Ifra-as-code",
     ttl                = var.ttl,
     terraform          = "true",
     hc-internet-facing = "true",

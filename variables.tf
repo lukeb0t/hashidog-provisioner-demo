@@ -33,7 +33,7 @@ variable "placeholder" {
 
 variable "owner" {
   description = "resource owner"
-  default     = "Luke McCleary"
+  default     = "George Jetson"
 }
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
