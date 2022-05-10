@@ -34,11 +34,11 @@ output "keypair_pem" {
 }
 
 output "hashidog_public_ip" {
-  value = aws_instance.hashidog.public_ip
+  value = aws_instance.hashidog.public_ip[count.index]
 }
 
 output "hashidog_private_ip" {
-  value = aws_instance.hashidog.private_ip
+  value = aws_instance.hashidog.private_ip[count.index]
 }
 
 output "hashidog_sg_id" {
