@@ -46,5 +46,5 @@ output "hashidog_sg_id" {
 }
 
 output "webapp_url" {
-  value = aws_eip.hashidog[*].public_dns
+  value = aws_instance.hashidog[*].public_dns
 }
