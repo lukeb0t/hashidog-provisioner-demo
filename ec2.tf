@@ -41,7 +41,7 @@ resource "aws_instance" "hashidog" {
     type        = "ssh"
     user        = "ubuntu"
     private_key = tls_private_key.hashidog.private_key_pem
-    host        = aws_instance.hashidog[count.index].public_ip
+    host        =  self.public_ip
   }
 
   provisioner "remote-exec" {
