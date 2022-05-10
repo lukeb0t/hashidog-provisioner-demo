@@ -40,6 +40,10 @@ variable "prefix" {
   default     = "hashidog-demo"
 }
 
+variable "num_instances" {
+  default = 2
+}
+
 variable "ttl" {
   default = "24"
 }
