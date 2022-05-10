@@ -55,6 +55,18 @@ resource "aws_instance" "hashidog" {
     private_key = tls_private_key.hashidog.private_key_pem
     host        =  self.public_ip
   }
+ 
+  provisioner "file" {
+    source      = "files/"
+    destination = "/home/ubuntu/"
+
+    connection {
+      type        = "ssh"
+      user        = "ubuntu"
+      private_key = tls_private_key.argonet.private_key_pem
+      host        = self.public_ip
+    }
+  }
 
   provisioner "remote-exec" {
     on_failure = continue
