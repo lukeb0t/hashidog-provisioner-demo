@@ -44,3 +44,7 @@ output "hashidog_private_ip" {
 output "hashidog_sg_id" {
   value = aws_security_group.hashidog.id
 }
+
+# output "webapp_url" {
+#   value = "http://${aws_eip.hashidog[*].public_dns}"
+# }
