@@ -37,7 +37,7 @@ variable "owner" {
 }
 variable "prefix" {
   description = "This prefix will be included in the name of most resources."
-  default     = "hashidog-demo"
+  default     = "hashidog"
 }
 
 variable "num_instances" {

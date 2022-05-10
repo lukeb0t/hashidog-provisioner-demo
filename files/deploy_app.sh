@@ -10,7 +10,7 @@ cat << EOM > /var/www/html/index.html
 
   <!-- BEGIN -->
   <center><img src="http://${PLACEHOLDER}/${WIDTH}/${HEIGHT}?id=91"></img></center>
-  <center><h2>Wuff-Wuff World!</h2></center>
+  <center><h2>Woof-Woof World!</h2></center>
   Look at this little ${PREFIX}!. Who's the goodest boy?
   <!-- END -->
 

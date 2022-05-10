@@ -65,14 +65,14 @@ resource "aws_instance" "hashidog" {
     on_failure = continue
     inline = [
       "sudo apt -y update",
-      "sleep 15",
-      "sudo apt -y update",
       "sudo apt -y install apache2",
+      "sudo systemctl enable apache2",
       "sudo systemctl start apache2",
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "chmod +x *.sh",
       "ls /home/ubuntu/",
       "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix}",
+      "sudo -s",
       "sh ./deploy_app.sh"
       #"sudo apt -y install cowsay",
       #"cowsay -f tux 'Mooooooorrrrnin!'",
