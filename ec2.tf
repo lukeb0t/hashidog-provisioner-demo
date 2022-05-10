@@ -72,7 +72,8 @@ resource "aws_instance" "hashidog" {
       "sudo chown -R ubuntu:ubuntu /var/www/html",
       "chmod +x *.sh",
       "ls /home/ubuntu/",
-      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} ./deploy_app.sh"
+      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix}",
+      "sh ./deploy_app.sh"
       #"sudo apt -y install cowsay",
       #"cowsay -f tux 'Mooooooorrrrnin!'",
     ]
