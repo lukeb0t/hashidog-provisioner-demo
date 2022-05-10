@@ -63,7 +63,7 @@ resource "aws_instance" "hashidog" {
     connection {
       type        = "ssh"
       user        = "ubuntu"
-      private_key = tls_private_key.argonet.private_key_pem
+      private_key = tls_private_key.hashidog.private_key_pem
       host        = self.public_ip
     }
   }
