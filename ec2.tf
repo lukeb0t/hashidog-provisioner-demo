@@ -59,13 +59,3 @@ resource "aws_instance" "hashidog" {
     ]
   }
 }
-
-# resource "aws_eip" "hashidog" {
-#   instance = aws_instance.hashidog.id
-#   vpc      = true
-# }
-# 
-# resource "aws_eip_association" "hashidog" {
-#   instance_id   = aws_instance.hashidog.id
-#   allocation_id = aws_eip.hashidog.id
-# }
