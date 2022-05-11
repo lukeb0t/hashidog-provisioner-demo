@@ -64,14 +64,10 @@ resource "aws_instance" "hashidog" {
   provisioner "remote-exec" {
     on_failure = continue
     inline = [
-      "sudo apt -y update && sudo apt -y upgrade",
-      "sleep 10",
-      "sudo apt -y install apache2",
-      "sudo systemctl start apache2",
-      "sudo chown -R ubuntu:ubuntu /var/www/html",
+      "sudo -s",
       "chmod +x *.sh",
-      "ls /home/ubuntu/",
-      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} ./deploy_app.sh"
+      "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} ./deploy_app.sh",
+      "exit"
     ]
   }
 }

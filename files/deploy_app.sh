@@ -1,6 +1,9 @@
 #!/bin/bash
-# Script to deploy a very simple web application.
-# The web app has a customizable image and some text.
+
+apt -y update
+apt -y install apache2
+systemctl start apache2
+chown -R ubuntu:ubuntu /var/www/html
 
 cat << EOM > /var/www/html/index.html
 <html>
@@ -19,4 +22,4 @@ cat << EOM > /var/www/html/index.html
 </html>
 EOM
 
-echo "Script complete."
+echo "Script completed"
