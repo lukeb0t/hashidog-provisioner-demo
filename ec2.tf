@@ -28,18 +28,6 @@ resource "random_shuffle" "public_subnets" {
   result_count = 1
 }
 
-# resource "aws_eip" "hashidog" {
-#   count = var.num_instances
-#   instance = aws_instance.hashidog[count.index].id
-#   vpc      = true
-# }
-# 
-# resource "aws_eip_association" "argonet" {
-#   count = var.num_instances
-#   instance_id   = aws_instance.hashidog[count.index].id
-#   allocation_id = aws_eip.hashidog[count.index].id
-# }
-
 resource "aws_instance" "hashidog" {
   count = var.num_instances
   ami                         = data.aws_ami.ubuntu.id
