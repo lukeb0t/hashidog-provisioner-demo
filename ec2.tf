@@ -64,10 +64,8 @@ resource "aws_instance" "hashidog" {
   provisioner "remote-exec" {
     on_failure = continue
     inline = [
-      "sudo -s",
       "chmod +x *.sh",
       "PLACEHOLDER=${var.placeholder} WIDTH=${var.width} HEIGHT=${var.height} PREFIX=${var.prefix} ./deploy_app.sh",
-      "exit"
     ]
   }
 }

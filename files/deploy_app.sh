@@ -1,9 +1,9 @@
 #!/bin/bash
 
-apt -y update
-apt -y install apache2
-systemctl start apache2
-chown -R ubuntu:ubuntu /var/www/html
+sudo apt -y update
+sudo apt -y install apache2
+sudo systemctl start apache2
+sudo chown -R ubuntu:ubuntu /var/www/html
 
 cat << EOM > /var/www/html/index.html
 <html>
