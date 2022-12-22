@@ -35,19 +35,19 @@ resource "aws_iam_role" "driftrole1" {
   assume_role_policy   = aws_iam_policy.driftrole1-sts.name
 }
 
-data "aws_iam_policy_document" "driftrole1-sts" {
-  statement {
-    actions = [
-      "sts:AssumeRole",
-      "sts:SetSourceIdentity",
-      "sts:TagSession"
-    ]
-    principals {
-      type        = "AWS"
-      identifiers = ["arn:aws:iam::397512762488:user/doormatServiceUser"]
-    }
-  }
-}
+# data "aws_iam_policy_document" "driftrole1-sts" {
+#   statement {
+#     actions = [
+#       "sts:AssumeRole",
+#       "sts:SetSourceIdentity",
+#       "sts:TagSession"
+#     ]
+#     principals {
+#       type        = "AWS"
+#       identifiers = ["arn:aws:iam::397512762488:user/doormatServiceUser"]
+#     }
+#   }
+# }
 
 resource "aws_iam_policy" "driftrole1-sts" {
   name        = "driftrole1-sts"
