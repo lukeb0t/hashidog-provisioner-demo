@@ -32,7 +32,7 @@ resource "aws_iam_role" "driftrole1" {
     hc-service-uri = "app.terraform.io/argocorp/driftrole1"
   }
   max_session_duration = 43200
-  assume_role_policy   = data.aws_iam_policy_document.driftrole1-sts.json
+  assume_role_policy   = aws_iam_policy.driftrole1-sts.name
 }
 
 data "aws_iam_policy_document" "driftrole1-sts" {
@@ -47,6 +47,30 @@ data "aws_iam_policy_document" "driftrole1-sts" {
       identifiers = ["arn:aws:iam::397512762488:user/doormatServiceUser"]
     }
   }
+}
+
+resource "aws_iam_policy" "driftrole1-sts" {
+  name        = "driftrole1-sts"
+  description = "A test policy for sts"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+      "sts:AssumeRole",
+      "sts:SetSourceIdentity",
+      "sts:TagSession"
+      ]
+      principals {
+      type        = "AWS"
+      identifiers = ["arn:aws:iam::397512762488:user/doormatServiceUser"]
+    }
+    }
+  ]
+}
+EOF
 }
 
 resource "aws_iam_policy" "driftrole1" {
@@ -69,3 +93,13 @@ resource "aws_iam_policy" "driftrole1" {
 }
 EOF
 }
+
+resource "aws_iam_role_policy_attachment" "driftrole1" {
+  role       = aws_iam_role.driftrole1.name
+  policy_arn = aws_iam_policy.driftrole1.arn
+}
+
+## resource "aws_iam_role_policy_attachment" "driftrole1-sts" {
+##   role       = aws_iam_role.driftrole1.name
+##   policy_arn = aws_iam_policy.driftrole1-sts.arn
+## }
