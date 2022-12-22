@@ -33,10 +33,6 @@ resource "aws_iam_role" "driftrole1" {
   }
   max_session_duration = 43200
   assume_role_policy   = data.aws_iam_policy_document.driftrole1-sts.json
-  inline_policy {
-    name   = "SampleRolePermissions"
-    policy = data.aws_iam_policy_document.driftrole1.json
-  }
 }
 
 data "aws_iam_policy_document" "driftrole1-sts" {
@@ -53,10 +49,23 @@ data "aws_iam_policy_document" "driftrole1-sts" {
   }
 }
 
-# The following is just for completeness of the sample
-data "aws_iam_policy_document" "driftrole1" {
-  statement {
-    actions   = ["ec2:*", "iam:*"]
-    resources = ["*"]
-  }
+resource "aws_iam_policy" "driftrole1" {
+  name        = "driftrole1"
+  description = "A test policy"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": [
+        "ec2:*",
+        "iam:*"
+      ],
+      "Effect": "Allow",
+      "Resource": "*"
+    }
+  ]
+}
+EOF
 }
