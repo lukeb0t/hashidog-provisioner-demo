@@ -32,7 +32,7 @@ resource "aws_iam_role" "driftrole1" {
     hc-service-uri = "app.terraform.io/argocorp/driftrole1"
   }
   max_session_duration = 43200
-  assume_role_policy   = data.aws_iam_policy.driftrole1-sts.json
+  assume_role_policy   = data.aws_iam_policy_document.driftrole1-sts.json
 }
 
 data "aws_iam_policy_document" "driftrole1-sts" {
