@@ -13,7 +13,7 @@ provider "doormat" {}
 data "doormat_aws_credentials" "creds" {
   provider = doormat
 
-  role_arn = "arn:aws:iam::325038557378:role/argonet_provisioner"
+  role_arn = "arn:aws:iam::325038557378:role/hashidog-provisioner-demo"
 }
 
 locals {
