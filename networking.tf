@@ -13,7 +13,7 @@ module "vpc" {
   public_subnets  = cidrsubnets("10.0.200.0/20", 4, 4, 4)
 
   enable_nat_gateway = false
-  enable_vpn_gateway = true
+  enable_vpn_gateway = false
   enable_dns_hostnames = true
 }
 
