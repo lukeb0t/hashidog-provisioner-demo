@@ -9,8 +9,8 @@ module "vpc" {
   cidr = "10.0.0.0/16"
 
   azs             = data.aws_availability_zones.azs.names
-  private_subnets = cidrsubnets("10.0.100.0/20", 4, 4, 4, 4, 4, 4)
-  public_subnets  = cidrsubnets("10.0.200.0/20", 4, 4, 4, 4, 4, 4)
+  private_subnets = cidrsubnets("10.0.100.0/20", 4, 4, 4)
+  public_subnets  = cidrsubnets("10.0.200.0/20", 4, 4, 4)
 
   enable_nat_gateway = true
   enable_vpn_gateway = true
