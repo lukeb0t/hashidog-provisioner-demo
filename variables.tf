@@ -47,7 +47,3 @@ variable "num_instances" {
 variable "ttl" {
   default = "24"
 }
-
-variable "TFC_WORKLOAD_IDENTITY_AUDIENCE" {
-  
-}
