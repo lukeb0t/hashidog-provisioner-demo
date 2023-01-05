@@ -8,7 +8,7 @@ terraform {
     }
     doormat = {
       source  = "doormat.hashicorp.services/hashicorp-security/doormat"
-      version = "~> 0.0.0"
+      version = "~> 0.0.3"
     }
 }
 
