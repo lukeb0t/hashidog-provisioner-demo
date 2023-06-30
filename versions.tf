@@ -10,6 +10,10 @@ terraform {
       source  = "doormat.hashicorp.services/hashicorp-security/doormat"
       version = ">= 0.0.3"
     }
+    http = {
+      source = "hashicorp/http"
+      version = "3.4.0"
+    }
 }
 
 cloud {
@@ -19,5 +23,5 @@ cloud {
     workspaces {
       name = "hashidog-provisioner-demo"
     }
-  }
+}
 }

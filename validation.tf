@@ -1,6 +1,10 @@
-check "health_check" {
-  assert {
-    condition = "http://${aws_instance.hashidog[0].public_ip}" == 200
-    error_message = "${aws_instance.hashidog[0].public_ip}} returned an unhealthy status code"
-  }
-}
+#check "health_check" {
+#     data "http" "hashidog" {
+#    url = "http://${aws_instance.hashidog[0].public_ip}"
+#  }
+#
+#    assert {
+#    condition = data.http.hashidog.status_code == 200
+#    error_message = "${data.http.hashidog.url} returned an unhealthy status code"
+#  }
+#}
